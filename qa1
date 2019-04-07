@@ -10,7 +10,7 @@ namespace Auto.number
             try
             {  
                 string dataFromFile = System.IO.File.ReadAllText("C:\\Number1.txt"); 
-                Console.WriteLine("Введите слово для поиска:");
+                Console.WriteLine("Введите номер для поиска:");
                 string pattern = Console.ReadLine() + @"\w+";
                 foreach (Match m in Regex.Matches(dataFromFile, pattern, RegexOptions.IgnoreCase))
                 {
