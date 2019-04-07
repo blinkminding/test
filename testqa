@@ -1,0 +1,28 @@
+using System;
+using System.Text.RegularExpressions;
+
+namespace Auto.number
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {  
+                string dataFromFile = System.IO.File.ReadAllText("C:\\Number1.txt"); 
+                Console.WriteLine("Введите слово для поиска:");
+                string pattern = Console.ReadLine() + @"\w+";
+                foreach (Match m in Regex.Matches(dataFromFile, pattern, RegexOptions.IgnoreCase))
+                {
+                    const string Format = "Найдено : {0}";
+                    Console.WriteLine(Format, m.Value, m.Index);
+                }
+
+                while (Console.ReadKey().Key != ConsoleKey.Escape){};
+            }
+            finally
+            {
+            }
+        }
+    }
+}
